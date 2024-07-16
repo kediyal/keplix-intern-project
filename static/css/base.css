@@ -1,18 +1,44 @@
-header a {
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header a {
   color: red;
+  text-decoration: none;
+}
+
+.header {
+  background: rgb(12, 6, 115);
+  background: linear-gradient(
+    90deg,
+    rgba(12, 6, 115, 1) 0%,
+    rgba(14, 61, 139, 1) 0%,
+    rgba(29, 2, 14, 1) 100%
+  );
+  background-image: linear-gradient(to right);
+  align-items: center;
+  color: white;
+  display: flex;
 }
 
 /* Base Styles */
 .app {
   font-family: "Lato", sans-serif;
   font-size: 15px;
-  color: white;
   height: 100vh;
   width: 100vw;
+  color: white;
 }
 
-.header {
-  border-bottom: 1px solid #999;
-  margin-bottom: 2rem;
+.nav-right {
   display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav-right a {
+  color: red;
+  text-decoration: none;
 }
