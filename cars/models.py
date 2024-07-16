@@ -1,12 +1,26 @@
+import datetime
+
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.urls import reverse
+from djmoney.models.fields import MoneyField
+
+
+def current_year():
+    return datetime.date.today().year
+
+
+def max_value_current_year(value):
+    return MaxValueValidator(current_year())(value)
 
 
 class Car(models.Model):
     make = models.CharField(max_length=30)
     model = models.CharField(max_length=30)
-    year = models.PositiveIntegerField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    year = models.PositiveIntegerField(
+        validators=[MinValueValidator(1886), max_value_current_year]
+    )
+    price = MoneyField(max_digits=11, decimal_places=2, default_currency="INR")
 
     # A user can have many-to-one relationship.
     # In simple words, a user on the website can add multiple
