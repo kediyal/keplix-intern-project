@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}{% for car in cars %}
 <div class="cars-list-entry">
   <h2>
-    <a href=""> {{car.make}} </a>
+    <a href="{% url 'car-detail' car.pk %}"> {{car.make}} </a>
     <p>{{car.description}}</p>
   </h2>
 </div>
