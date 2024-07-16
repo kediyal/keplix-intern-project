@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.template.response import TemplateResponse
 from .models import Car
 
@@ -10,3 +10,11 @@ def car_list_view(request):
         "cars": Car.objects.all(),
     }
     return TemplateResponse(request, "cars/car_list.html", context)
+
+
+# Detail view for individual cars.
+def car_detail_view(request, pk):
+    context = {
+        "car": get_object_or_404(Car.objects.all(), pk=pk),
+    }
+    return TemplateResponse(request, "cars/car_detail.html", context)
