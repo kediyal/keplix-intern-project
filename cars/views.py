@@ -1,7 +1,9 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.template.response import TemplateResponse
+from django.urls import reverse, reverse_lazy
 
+from .forms import CarForm
 from .models import Car
 
 
@@ -24,3 +26,22 @@ def car_detail_view(request, pk):
         "car": get_object_or_404(Car.objects.all(), pk=pk),
     }
     return TemplateResponse(request, "cars/car_detail.html", context)
+
+
+# Create view for creating new cars.
+def car_create_view(request):
+    if request.method == "POST":
+        form = CarForm(request.POST)
+
+        if form.is_valid():
+            car = form.save(commit=False)
+            car.author = request.user
+            car.save()
+            return HttpResponseRedirect(reverse("car-detail", kwargs={"pk": car.pk}))
+    else:
+        form = CarForm()
+
+    context = {
+        "form": form,
+    }
+    return render(request, "cars/car_create.html", context)
