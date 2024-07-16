@@ -1,9 +1,13 @@
-{% extends "base.html" %} {% block content %}
-<div class="car-detail-entry">
-  <h1>{{ car.make }}</h1>
-  <p>{{ car.description }}</p>
-  <p>Year: {{ car.year }}</p>
-  <p>Price: {{ car.price }}</p>
-  <p>Author: {{ car.author }}</p>
-</div>
+{% extends "base.html" %}
+{% block content %}
+    <div class="car-detail-entry">
+        <h1>{{ car.make }}</h1>
+        <p>{{ car.description }}</p>
+        <p>Year: {{ car.year }}</p>
+        <p>Price: {{ car.price }}</p>
+        <p>Author: {{ car.author }}</p>
+        <p>
+            <a href="{% url 'car-delete' car.pk %}">Delete Car</a>
+        </p>
+    </div>
 {% endblock content %}
