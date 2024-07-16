@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% load static %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css"
-      integrity="sha512-rSWTr6dChYCbhpHaT1hg2tf4re2jUxBWTuZbujxKg96+T87KQJriMzBzW5aqcb8jmzBhhNSx4XYGA6/Y+ok1vQ=="
-      crossorigin="anonymous"
-    />
-    <title>Keplix Cars</title>
-  </head>
-  <body class="app">
-    <div>
-      <header class="header">
-        <div class="nav-left">
-          <h1><a href="{% url 'home' %}">Keplix Cars</a></h1>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css"
+              integrity="sha512-rSWTr6dChYCbhpHaT1hg2tf4re2jUxBWTuZbujxKg96+T87KQJriMzBzW5aqcb8jmzBhhNSx4XYGA6/Y+ok1vQ=="
+              crossorigin="anonymous" />
+        <title>Keplix Cars</title>
+    </head>
+    <body class="app">
+        <div>
+            <header class="header">
+                <div class="nav-left">
+                    <h1>
+                        <a href="{% url 'home' %}">Keplix Cars</a>
+                    </h1>
+                </div>
+                <div class="nav-right">
+                    <a href="{% url 'car-create' %}">+ Add New Car</a>
+                </div>
+            </header>
         </div>
-        <div class="nav-right">
-          <a href="{% url 'car-create' %}">+ Add New Car</a>
-        </div>
-      </header>
-    </div>
-    {% block content %} {% endblock content %}
-  </body>
+        {% block content %}
+        {% endblock content %}
+    </body>
 </html>
