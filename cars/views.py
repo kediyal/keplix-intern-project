@@ -1,9 +1,15 @@
-from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 from django.template.response import TemplateResponse
+
 from .models import Car
 
 
 # Using Function-Based-Views (FBVs) for now.
+def home_view(request):
+    return HttpResponseRedirect("cars/")
+
+
 # List view for the available cars.
 def car_list_view(request):
     context = {
