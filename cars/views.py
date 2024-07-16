@@ -45,3 +45,16 @@ def car_create_view(request):
         "form": form,
     }
     return render(request, "cars/car_create.html", context)
+
+
+# Delete view for deleting existing cars.
+def car_delete_view(request, pk):
+    car = get_object_or_404(Car, pk=pk)
+    print(f"Car object: {car}")
+    if request.method == "POST":
+        car.delete()
+        return HttpResponseRedirect(reverse_lazy("home"))
+    context = {
+        "car": car,
+    }
+    return TemplateResponse(request, "cars/car_delete.html", context)
