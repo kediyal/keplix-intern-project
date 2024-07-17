@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="car-detail-entry">
-        <h1>{{ car.make }}</h1>
-        <p>{{ car.description }}</p>
-        <p>Year: {{ car.year }}</p>
-        <p>Price: {{ car.price }}</p>
-        <p>Author: {{ car.author }}</p>
-        <p>
-            <a href="{% url 'car-delete' car.pk %}">Delete Car</a>
-        </p>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-4">{{ car.make }} {{ car.model }}</h1>
+                <p class="fs-5">Year: {{ car.year }}</p>
+                <p class="fs-5">Price: {{ car.price }}</p>
+                <p class="fs-5">{{ car.description }}</p>
+                <p>
+                    <a href="{% url 'car-delete' car.pk %}" class="btn btn-danger">Delete Car</a>
+                </p>
+            </div>
+        </div>
     </div>
 {% endblock content %}
