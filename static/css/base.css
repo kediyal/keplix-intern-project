@@ -5,14 +5,22 @@
 }
 
 .header a {
-  color: #EDF1F3;
+  color: #edf1f3;
   text-decoration: none;
 }
 
 .header {
-    background: #c31432;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #c31432; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #240b36,
+    #c31432
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #240b36,
+    #c31432
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   align-items: center;
   display: flex;
 }
@@ -23,7 +31,7 @@
   font-size: 15px;
   height: 100vh;
   width: 100vw;
-  background-color: #EDF1F3;
+  background-color: #edf1f3;
 }
 
 .nav-right {
@@ -33,14 +41,15 @@
 }
 
 .nav-right a {
-  color: red;
   text-decoration: none;
 }
 
 .card-author {
-    position: absolute;
-    bottom: 10px;  
-    right: 10px;   }
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
 
 .card-author small {
-  font-size: 12px; }
+  font-size: 12px;
+}
