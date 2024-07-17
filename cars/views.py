@@ -9,7 +9,10 @@ from .models import Car
 
 # Using Function-Based-Views (FBVs) for now.
 def home_view(request):
-    return HttpResponseRedirect("cars/")
+    if request.user.is_authenticated:
+        return HttpResponseRedirect("cars/")
+    else:
+        return HttpResponseRedirect("accounts/login/")
 
 
 # List view for the available cars.
