@@ -52,6 +52,29 @@ def car_create_view(request):
     return render(request, "cars/car_create.html", context)
 
 
+# Update view for updating existing cars.
+@login_required
+def car_update_view(request, pk):
+    car = get_object_or_404(Car, pk=pk)
+
+    if car.author != request.user:
+        return HttpResponseRedirect(reverse("car-detail", kwargs={"pk": car.pk}))
+
+    if request.method == "POST":
+        form = CarForm(request.POST, instance=car)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("car-detail", kwargs={"pk": car.pk}))
+    else:
+        form = CarForm(instance=car)
+
+    context = {
+        "form": form,
+        "car": car,
+    }
+    return TemplateResponse(request, "cars/car_update.html", context)
+
+
 # Delete view for deleting existing cars.
 @login_required
 def car_delete_view(request, pk):
