@@ -8,7 +8,7 @@ from .views import (
 )
 
 urlpatterns = [
-    path("", car_list_view, name="home"),
+    path("", home_view, name="home"),
     path("cars/", car_list_view, name="car-list"),
     path("cars/new/", car_create_view, name="car-create"),
     path("cars/<int:pk>/", car_detail_view, name="car-detail"),
