@@ -9,7 +9,9 @@
                 <p class="fs-5">{{ car.description }}</p>
                 <p class="fs-5">Added by: @{{ car.author }}</p>
                 {# Adjust font size as needed #}
+                {% if car.author == request.user %}
                 <a href="{% url 'car-delete' car.pk %}" class="btn btn-danger">Delete Car</a>
+                {% endif %}
             </p>
         </div>
     </div>

@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="car-create-entry">
-        <h1>Add a new car</h1>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card p-4" style="width: 30rem;">
+        <h2 class="text-center">Add a new car</h2>
         <form action="" method="post">
             {% csrf_token %} {{ form | crispy }}
             <button type="submit" class="btn btn-success ml-2">Save</button>
         </form>
+        </div>
     </div>
 {% endblock content %}

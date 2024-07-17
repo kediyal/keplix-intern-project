@@ -11,8 +11,10 @@
                         </p>
                         <form method="post">
                             {% csrf_token %}
-                            <input type="submit" class="btn btn-danger" value="Delete" />
-                            <a href="{% url 'car-detail' car.pk %}" class="btn btn-secondary ms-2">Cancel</a>
+                            {% if car.author == request.user %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <a href="{% url 'car-detail' car.pk %}" class="btn btn-secondary ms-2">Cancel</a>
+                            {% endif %}
                         </form>
                     </div>
                 </div>
