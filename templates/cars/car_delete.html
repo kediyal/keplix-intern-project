@@ -1,11 +1,20 @@
-{% extends "base.html" %} {% block content %}
-<h1>Delete Car</h1>
-<p>
-  Are you sure you want to delete `{{ car.make }} {{ car.model }} {{ car.year}}`?
-</p>
-<form method="post">
-  {% csrf_token %}
-  <input type="submit" value="Delete" />
-</form>
-<a href="{% url 'car-detail' car.pk %}">Cancel</a>
+{% extends "base.html" %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Delete Car</h1>
+                        <p>Are you sure you want to delete <strong>{{ car.make }} {{ car.model }} {{ car.year }}</strong>?</p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-danger" value="Delete" />
+                            <a href="{% url 'car-detail' car.pk %}" class="btn btn-secondary ms-2">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
