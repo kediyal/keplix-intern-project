@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <div class="car-create-entry">
         <h1>Add a new car</h1>
         <form action="" method="post">
-            {% csrf_token %} {{ form.as_p }}
-            <input type="submit" value="Save" />
+            {% csrf_token %} {{ form | crispy }}
+            <button type="submit" class="btn btn-success ml-2">Save</button>
         </form>
     </div>
 {% endblock content %}
