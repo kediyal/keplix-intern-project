@@ -1,11 +1,24 @@
 {% extends "base.html" %}
+
 {% block content %}
-    {% for car in cars %}
-        <div class="cars-list-entry">
-            <h2>
-                <a href="{% url 'car-detail' car.pk %}">{{ car.make }}</a>
-                <p>{{ car.description }}</p>
-            </h2>
+    <div class="container-fluid mt-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for car in cars %}
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{% url 'car-detail' car.pk %}">
+                                    {{ car.make }} {{ car.model }}
+                                </a>
+                            </h5>
+                            <p class="card-text">{{ car.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+    </div>
 {% endblock content %}
+
+
