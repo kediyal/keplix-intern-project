@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
     <div class="container-fluid mt-5">
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -7,12 +6,11 @@
                 <div class="col mb-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="{% url 'car-detail' car.pk %}">
-                                    {{ car.make }} {{ car.model }}
-                                </a>
-                            </h5>
-                            <p class="card-text">{{ car.description | truncatechars:100}}</p>
+                            <h5 class="card-title"><a href="{% url 'car-detail' car.pk %}">{{ car.make }} {{ car.model }}</a></h5>
+                            <p class="card-text">{{ car.description|truncatechars:100 }}</p>
+                            <div class="card-author">
+                                <small class="text-muted">Added by: {{ car.author.username }}</small>
+                            </div>
                         </div>
                     </div>
                 </div>
