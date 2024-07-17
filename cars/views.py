@@ -2,20 +2,20 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.template.response import TemplateResponse
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 from .forms import CarForm
 from .models import Car
 
 
 # Using Function-Based-Views (FBVs) for now.
+@login_required
 def home_view(request):
-    if request.user.is_authenticated:
-        return HttpResponseRedirect("cars/")
-    else:
-        return HttpResponseRedirect("accounts/login/")
+    return HttpResponseRedirect("cars/")
 
 
 # List view for the available cars.
+@login_required
 def car_list_view(request):
     context = {
         "cars": Car.objects.all(),
@@ -24,6 +24,7 @@ def car_list_view(request):
 
 
 # Detail view for individual cars.
+@login_required
 def car_detail_view(request, pk):
     context = {
         "car": get_object_or_404(Car.objects.all(), pk=pk),
@@ -32,6 +33,7 @@ def car_detail_view(request, pk):
 
 
 # Create view for creating new cars.
+@login_required
 def car_create_view(request):
     if request.method == "POST":
         form = CarForm(request.POST)
@@ -51,9 +53,14 @@ def car_create_view(request):
 
 
 # Delete view for deleting existing cars.
+@login_required
 def car_delete_view(request, pk):
     car = get_object_or_404(Car, pk=pk)
     print(f"Car object: {car}")
+
+    if car.author != request.user:
+        return HttpResponseRedirect(reverse("home"))
+
     if request.method == "POST":
         car.delete()
         return HttpResponseRedirect(reverse_lazy("home"))
