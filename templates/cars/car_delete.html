@@ -6,7 +6,9 @@
                 <div class="card">
                     <div class="card-body">
                         <h1>Delete Car</h1>
-                        <p>Are you sure you want to delete <strong>{{ car.make }} {{ car.model }} {{ car.year }}</strong>?</p>
+                        <p>
+                            Are you sure you want to delete <strong>{{ car.make }} {{ car.model }} {{ car.year }}</strong>?
+                        </p>
                         <form method="post">
                             {% csrf_token %}
                             <input type="submit" class="btn btn-danger" value="Delete" />
