@@ -12,7 +12,7 @@
                                     {{ car.make }} {{ car.model }}
                                 </a>
                             </h5>
-                            <p class="card-text">{{ car.description }}</p>
+                            <p class="card-text">{{ car.description | truncatechars:100}}</p>
                         </div>
                     </div>
                 </div>
