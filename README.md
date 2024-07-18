@@ -6,13 +6,14 @@ This project is part of the assignment for the Keplix Intern Role.
 
 1. The project is named `cars_inventory`, and this directory contains all the project-related files.
 2. There is an additional directory `cars` which contains all the files handling the functionality related to managing cars on the website.
-3. The directory `templates` contains all the styling and the webpages of the website.
+3. The `accounts` directory contains the logic for signup process with a custom signup form.
+4. The directory `templates` contains all the styling and the webpages of the website.
 
 ### Functionalities
-1. **User Authentication:** Password change, Password reset, User registration, User login, User logout
-2. **Car Management:** Add new car, View car details, Update car details, Delete car
-3. **User Interface:** Responsive design with Bootstrap, Navigation bar with authentication status, User-friendly forms with validation
-4. **Admin Interface:** Access to Django admin panel, Manage users and cars
+1. **User Authentication:** Password change, password reset, user registration, user login, user logout
+2. **Car Management:** Add new car, view car details, update car details, delete car
+3. **User Interface:** Responsive design with Bootstrap, navigation bar with authentication status, user-friendly forms with validation
+4. **Admin Interface:** Access to Django admin panel, manage users and cars
 
 
 ### How to Run the Project
