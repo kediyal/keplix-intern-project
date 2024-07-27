@@ -1,6 +1,6 @@
 # Design a Car Inventory Management System
 
-This project is part of the assignment for the Keplix Intern Role.
+This project is part of the assignment for the Keplix Intern Role (never heard from them again). I'll just keep this repository public. I don't really mind. Got to learn a lot.
 
 ### Project Structure
 
